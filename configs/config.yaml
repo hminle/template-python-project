@@ -1,0 +1,28 @@
+# @package _global_
+
+# specify here default training configuration
+defaults:
+  - _self_
+  - dataset: dummy
+  - mode: exp
+  - experiment: dummy_exp
+
+  # enable color logging
+  - override hydra/hydra_logging: colorlog
+  - override hydra/job_logging: colorlog
+
+# path to original working directory
+# hydra hijacks working directory by changing it to the current log directory,
+# so it's useful to have this path as a special variable
+# https://hydra.cc/docs/next/tutorials/basic/running_your_app/working_directory
+work_dir: ${hydra:runtime.cwd}
+
+# pretty print config at the start of the run using Rich library
+print_config: True
+
+# disable python warnings if they annoy you
+ignore_warnings: True
+
+# seed for random number generators in pytorch, numpy and python.random
+seed: 2021
+name: ???
