@@ -13,6 +13,5 @@ def main(config: DictConfig):
     if config.get("print_config"):
         print(OmegaConf.to_yaml(config))
 
-
 if __name__ == "__main__":
     main()
