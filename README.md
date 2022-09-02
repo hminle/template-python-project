@@ -1,5 +1,5 @@
 # template-research-project
-A Template Repo for Python Projects
+A Template Repo for My Research Projects
 
 ## Init repo
 1. `conda env create -n <env name> --file conda-env.yaml`
