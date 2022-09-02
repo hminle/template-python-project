@@ -2,7 +2,7 @@ import time
 import warnings
 from importlib.util import find_spec
 from pathlib import Path
-from typing import Any, Callable, Dict, List
+from typing import Any, Callable, Dict, List, Union
 
 import hydra
 from omegaconf import DictConfig
@@ -10,9 +10,9 @@ from pytorch_lightning import Callback
 from pytorch_lightning.loggers import LightningLoggerBase
 from pytorch_lightning.utilities import rank_zero_only
 
-from src.utils import pylogger, rich_utils
+from src import utils
 
-log = pylogger.get_pylogger(__name__)
+log = utils.get_pylogger(__name__)
 
 
 def task_wrapper(task_func: Callable) -> Callable:
@@ -75,12 +75,12 @@ def extras(cfg: DictConfig) -> None:
     # prompt user to input tags from command line if none are provided in the config
     if cfg.extras.get("enforce_tags"):
         log.info("Enforcing tags! <cfg.extras.enforce_tags=True>")
-        rich_utils.enforce_tags(cfg, save_to_file=True)
+        utils.enforce_tags(cfg, save_to_file=True)
 
     # pretty print config tree using Rich library
     if cfg.extras.get("print_config"):
         log.info("Printing config tree with Rich! <cfg.extras.print_config=True>")
-        rich_utils.print_config_tree(cfg, resolve=True, save_to_file=True)
+        utils.print_config_tree(cfg, resolve=True, save_to_file=True)
 
 
 @rank_zero_only
@@ -172,7 +172,7 @@ def log_hyperparameters(object_dict: dict) -> None:
     trainer.logger.log_hyperparams(hparams)
 
 
-def get_metric_value(metric_dict: dict, metric_name: str) -> float:
+def get_metric_value(metric_dict: dict, metric_name: str) -> Union[float, Any]:
     """Safely retrieves value of the metric logged in LightningModule."""
 
     if not metric_name:

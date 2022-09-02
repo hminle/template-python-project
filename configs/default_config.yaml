@@ -3,26 +3,48 @@
 # specify here default training configuration
 defaults:
   - _self_
-  - dataset: dummy
-  - mode: exp
-  - experiment: dummy_exp
+  - paths: default.yaml
+  - hydra: default.yaml
 
-  # enable color logging
-  - override hydra/hydra_logging: colorlog
-  - override hydra/job_logging: colorlog
+# # pretty print config at the start of the run using Rich library
+# print_config: True
 
-# path to original working directory
-# hydra hijacks working directory by changing it to the current log directory,
-# so it's useful to have this path as a special variable
-# https://hydra.cc/docs/next/tutorials/basic/running_your_app/working_directory
-work_dir: ${hydra:runtime.cwd}
+# # disable python warnings if they annoy you
+# ignore_warnings: True
 
-# pretty print config at the start of the run using Rich library
-print_config: True
+# # seed for random number generators in pytorch, numpy and python.random
+# seed: 2021
+# name: ???
+# task name, determines output directory path
+task_name: "test_hydra"
 
-# disable python warnings if they annoy you
-ignore_warnings: True
+# paths:
+#   # path to root directory
+#   root_dir: /home/hminle/gitrepo/template-research-project
 
-# seed for random number generators in pytorch, numpy and python.random
-seed: 2021
-name: ???
+#   # path to data directory
+#   data_dir: ${paths.root_dir}/data/
+
+#   # path to logging directory
+#   log_dir: ${paths.root_dir}/logs/
+
+#   # path to output directory, created dynamically by hydra
+#   # path generation pattern is specified in `configs/hydra/default.yaml`
+#   # use it to store all files generated during the run, like ckpts and metrics
+#   output_dir: ${hydra:runtime.output_dir}
+
+#   # path to original working directory
+#   # hydra hijacks working directory by changing it to the current log directory,
+#   # so it's useful to have this path as a special variable
+#   # https://hydra.cc/docs/next/tutorials/basic/running_your_app/working_directory
+#   work_dir: ${hydra:runtime.cwd}
+
+extras:
+  # disable python warnings if they annoy you
+  ignore_warnings: False
+
+  # ask user for tags if none are provided in the config
+  enforce_tags: True
+
+  # pretty print config tree at the start of the run using Rich library
+  print_config: True
