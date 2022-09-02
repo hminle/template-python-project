@@ -1,4 +1,4 @@
-# template-python-project
+# template-research-project
 A Template Repo for Python Projects
 
 ## Init repo
