@@ -7,7 +7,7 @@ from omegaconf import DictConfig, OmegaConf
 # dotenv.load_dotenv(override=True)
 
 
-@hydra.main(config_path="configs/", config_name="config.yaml")
+@hydra.main(version_base="1.2", config_path="configs/", config_name="default_config.yaml")
 def main(config: DictConfig):
 
     if config.get("print_config"):
