@@ -7,6 +7,7 @@ from hydra import utils as hydra_utils
 from omegaconf import DictConfig, OmegaConf
 
 from src import utils
+from src.experiment_manager import ExperimentManager
 
 log = utils.get_pylogger(__name__)
 
@@ -18,8 +19,16 @@ log = utils.get_pylogger(__name__)
 @hydra.main(version_base="1.2", config_path="configs/", config_name="default_config.yaml")
 def main(config: DictConfig):
 
+    # pretty print config tree using Rich library
     if config.extras.get("print_config"):
-        utils.extras(config)
+        log.info("Printing config tree with Rich! <cfg.extras.print_config=True>")
+        utils.print_config_tree(config, resolve=True, save_to_file=True)
+
+    experiment_manager = ExperimentManager(config)
+    experiment_manager.init_experiment()
+    experiment_manager.start_experiment()
+    experiment_manager.finish_experiment()
+
     # log.info(OmegaConf.to_yaml(config))
     # log.info(config.paths.root_dir)
     # log.info(config.paths.project_dir)
