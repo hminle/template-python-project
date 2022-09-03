@@ -37,7 +37,7 @@ This template was heavily inspired by: [lightning-hydra-template](https://github
 
 ## License
 
-Lightning-Hydra-Template is licensed under the MIT License.
+This template is licensed under the MIT License.
 
 ```
 MIT License
