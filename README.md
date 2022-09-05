@@ -2,7 +2,9 @@
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
-[![last commit](https://img.shields.io/github/last-commit/hminle/template-research-project)](https://github.com/hminle/)
+[![Last commit](https://img.shields.io/github/last-commit/hminle/template-research-project)](https://github.com/hminle/)
+[![Top language](https://img.shields.io/github/languages/top/hminle/template-research-project)](https://github.com/hminle/)
+[![Repo size](https://img.shields.io/github/repo-size/hminle/template-research-project)](https://github.com/hminle/)
 
 
 A Template Repo for My Research Projects
