@@ -1,5 +1,10 @@
 # template-research-project
 
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![last commit](https://img.shields.io/github/last-commit/hminle/template-research-project)](https://github.com/hminle/)
+
+
 A Template Repo for My Research Projects
 
 ## Init repo
